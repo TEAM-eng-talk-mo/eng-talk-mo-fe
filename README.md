@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🔠English Talk MOIM!✍️
 
-## Getting Started
+## User Experience
 
-First, run the development server:
+### 학생 입장
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1.  회원가입
+2.  로그인
+3.  스터디 모임 찾기
+    - 동네 근처 스터디
+    - 온라인 스터디
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 강사 입장
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1.  회원가입
+2.  로그인
+3.  강사 등록
+4.  스터디 모임 만들기
+    - 동네 스터디
+    - 온라인 스터디
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Routes
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Main
+   - Study nearby List
+   - Online study List
+2. Study
+   - Study Detail
+   - Study Registration
+3. Auth
+   - Sign Up
+   - SIgn In
+4. User
+   - Teacher Registration
+   - Updating User Info
+   - My Study
