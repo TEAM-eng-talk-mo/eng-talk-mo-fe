@@ -1,5 +1,9 @@
 # 🔠English Talk MOIM!✍️
 
+## CLI
+
+1. `npm run dev` is run development
+
 ## User Experience
 
 ### 학생 입장
