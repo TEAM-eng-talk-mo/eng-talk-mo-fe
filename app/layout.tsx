@@ -6,7 +6,7 @@ import Header from "@/components/Header/Header";
 
 const noto_sans_kr = Noto_Sans_KR({
   subsets: ["latin"],
-  weight: ["400", "200", "600", "800"],
+  weight: ["200", "400", "600", "800"],
 });
 
 export const metadata: Metadata = {
@@ -20,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <body className={noto_sans_kr.className}>
+    <html lang="ko" className={noto_sans_kr.className}>
+      <body>
         <Header />
         <main className="flex justify-center items-center w-screen">
           {children}

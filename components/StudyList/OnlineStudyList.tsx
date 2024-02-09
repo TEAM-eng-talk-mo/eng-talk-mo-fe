@@ -24,14 +24,30 @@ const OnlineStudyList = () => {
 
   const handleSliderChange = () => {
     const prevIndex = sliderIndex;
+    const indexMoved = swiperRef.current?.activeIndex! - prevIndex!;
     setSliderIndex(swiperRef.current?.activeIndex);
-    if (swiperRef.current?.activeIndex! - prevIndex! > 0) {
-      if (pageIndex !== 2) setPageIndex((prev) => (prev + 1) as 1 | 2);
-      if (pageIndex === 2) pageRef.current?.slideNext();
+
+    if (indexMoved > 0) {
+      for (let i = 0; i < indexMoved; i++) {
+        if (pageIndex !== 2) {
+          setPageIndex((prev) => (prev + 1) as 0 | 1 | 2);
+          continue;
+        }
+        if (pageIndex === 2) {
+          pageRef.current?.slideNext();
+        }
+      }
     }
-    if (swiperRef.current?.activeIndex! - prevIndex! < 0) {
-      if (pageIndex !== 0) setPageIndex((prev) => (prev - 1) as 0 | 1);
-      if (pageIndex === 0) pageRef.current?.slidePrev();
+    if (indexMoved < 0) {
+      for (let i = 0; i < -indexMoved; i++) {
+        if (pageIndex !== 0) {
+          setPageIndex((prev) => (prev - 1) as 0 | 1 | 2);
+          continue;
+        }
+        if (pageIndex === 0) {
+          pageRef.current?.slidePrev();
+        }
+      }
     }
   };
 
@@ -44,7 +60,7 @@ const OnlineStudyList = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("resize", () => {
+    const handleSliderCntUseWidth = () => {
       const width = window.innerWidth;
       if (width < 640) {
         setSliderCnt(1);
@@ -55,12 +71,14 @@ const OnlineStudyList = () => {
         return;
       }
       setSliderCnt(3);
-    });
+    };
+    handleSliderCntUseWidth();
+    window.addEventListener("resize", handleSliderCntUseWidth);
   }, []);
   return (
     <div>
       <div className="flex justify-between font-semibold my-2 text-xl ">
-        <div>💻 온라인 회화 모임!</div>
+        <div>💻 온라인 스터디</div>
         <div className="flex gap-1 text-sm items-center">
           <div
             className={cn(
@@ -95,7 +113,7 @@ const OnlineStudyList = () => {
             setSliderIndex(swiper.activeIndex);
           }}>
           {Array.from({ length: 10 }, (_, index) => (
-            <SwiperSlide key={index} className="bg-red-50">
+            <SwiperSlide key={index}>
               <StudyContainer />
             </SwiperSlide>
           ))}
