@@ -109,21 +109,33 @@ const StudyNearbyList = () => {
               slidesPerView={5}
               onSwiper={(swiper) => {
                 pageRef.current = swiper;
-              }}>
-              <SwiperSlide>
-                <div className="w-4 h-4" />
-              </SwiperSlide>
+              }}
+              allowTouchMove={false}>
               {Array.from(
-                { length: Math.ceil(sliderContentsCnt / sliderCnt) },
+                { length: sliderContentsCnt - sliderCnt + 3 },
                 (_, index) => (
                   <SwiperSlide key={index}>
-                    {index === sliderIndex ? <GoDotFill /> : <GoDot />}
+                    {index === 0 ||
+                    index === sliderContentsCnt - sliderCnt + 2 ? (
+                      <div className="w-4 h-4" />
+                    ) : index === sliderIndex! + 1 ? (
+                      <GoDotFill className="scale-100 transition" />
+                    ) : (
+                      <GoDot
+                        className={cn(
+                          index === sliderIndex! + (2 - pageIndex) - 2 ||
+                            index === sliderIndex! - pageIndex + 4
+                            ? "scale-50 transition"
+                            : index === sliderIndex! + (2 - pageIndex) - 3 ||
+                              index === sliderIndex! - pageIndex + 5
+                            ? "scale-0 transition"
+                            : "scale-100 transition"
+                        )}
+                      />
+                    )}
                   </SwiperSlide>
                 )
               )}
-              <SwiperSlide>
-                <div className="w-4 h-4" />
-              </SwiperSlide>
             </SwiperContianer>
           </div>
         </div>
