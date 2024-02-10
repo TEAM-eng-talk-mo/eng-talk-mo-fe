@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <header className="flex justify-between items-center my-4 mx-2 sm:my-6 sm:mx-4 md:mx-6 lg:mx-8 xl:mx-10 font-semibold">
-      <div className="flex gap-2 items-center md:text-lg">
+      <div className="flex gap-2 sm:gap-4 md:gap-6 lg:gap-8 items-center md:text-lg">
         <Link
           href={"/"}
           className="fontbold text-2xl md:text-3xl bg-gradient-to-r from-blue-500 to-red-500 text-transparent bg-clip-text mr-2 -translate-y-0.5">
