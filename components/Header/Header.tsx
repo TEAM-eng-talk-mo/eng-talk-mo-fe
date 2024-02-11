@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HeaderUsr from "./HeaderUsr";
+import Image from "next/image";
 
 const Header = () => {
   const routes = {
@@ -16,11 +17,14 @@ const Header = () => {
 
   return (
     <header className="flex justify-between items-center my-4 mx-2 sm:my-6 sm:mx-4 md:mx-6 lg:mx-8 xl:mx-10 font-semibold">
-      <div className="flex gap-2 sm:gap-4 md:gap-6 lg:gap-8 items-center md:text-lg">
-        <Link
-          href={"/"}
-          className="fontbold text-2xl md:text-3xl bg-gradient-to-r from-blue-500 to-red-500 text-transparent bg-clip-text mr-2 -translate-y-0.5">
-          INGTOK
+      <div className="flex gap-3 sm:gap-5 md:gap-7 lg:gap-9 items-center md:text-lg">
+        <Link href={"/"} className="w-36 h-16 -mr-2">
+          <Image
+            alt="home-logo"
+            src="/logo.svg"
+            height={200}
+            width={200}
+            className="-translate-y-9 scale-95 sm:scale-110 lg:scale-125 "></Image>
         </Link>
         {routesKeys.map((key) => (
           <Link key={key} href={routes[key].href}>
