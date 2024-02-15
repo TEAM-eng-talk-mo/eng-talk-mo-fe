@@ -45,7 +45,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="w-[400px] mt-5 font-semibold">
+    <div>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
         <div className="text-2xl flex justify-center">로그인</div>
         <div>
